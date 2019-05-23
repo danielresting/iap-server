@@ -61,12 +61,31 @@ class HomeViewController: UIViewController {
             ])
     }
     
+    func actions() {
+        self.subscribeButton.addTarget(self, action: #selector(didTapSubscribeButton), for: .touchUpInside)
+        self.refreshServerButton.addTarget(self, action: #selector(didTapServerRefreshButton), for: .touchUpInside)
+        self.refreshLocalButton.addTarget(self, action: #selector(didTapLocalRefreshButton), for: .touchUpInside)
+    }
+    
+    @objc func didTapSubscribeButton() {
+        presenter.didTapSubscribe()
+    }
+    
+    @objc func didTapServerRefreshButton() {
+        presenter.didTapServerRefresh()
+    }
+    
+    @objc func didTapLocalRefreshButton() {
+        presenter.didTapLocalRefresh()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Subscription Status"
         self.view.backgroundColor = .lightGray
         self.layout()
+        self.actions()
         
         self.presenter.didLoad()
     }

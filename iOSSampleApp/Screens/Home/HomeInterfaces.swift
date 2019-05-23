@@ -10,6 +10,10 @@ import Foundation
 protocol HomeUIInput: class {}
 protocol HomeUIOutput: class {
     func didLoad()
+    
+    func didTapSubscribe()
+    func didTapServerRefresh()
+    func didTapLocalRefresh()
 }
 
 protocol HomeInteractorInput: class {

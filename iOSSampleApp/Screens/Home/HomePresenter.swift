@@ -23,6 +23,14 @@ extension HomePresenter: HomeInteractorOutput {
 }
 
 extension HomePresenter: HomeUIOutput {
+    func didTapServerRefresh() {
+        interactor.fetchServerStatus()
+    }
+    
+    func didTapLocalRefresh() {
+        interactor.fetchLocalStatus()
+    }
+    
     func didLoad() {
         interactor.fetchServerStatus()
         interactor.fetchLocalStatus()
