@@ -1,0 +1,27 @@
+name: IAPSampleApp
+options:
+  findCarthageFrameworks: true
+  carthageExecutablePath: swift run mint run Carthage/Carthage carthage
+settings:
+  DEVELOPMENT_TEAM: $IOS_DEVELOPMENT_TEAM
+targets:
+  IAPSampleApp:
+    type: application
+    platform: iOS
+    deploymentTarget:
+      iOS: 12.0
+    sources:
+      - iOSSampleApp/
+    settings:
+        CODE_SIGN_STYLE: Automatic
+        PRODUCT_BUNDLE_IDENTIFIER: danielresting.ios
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: "$(inherited)"
+        VERSIONING_SYSTEM: apple-generic
+        SWIFT_VERSION: 5.0
+        FRAMEWORK_SEARCH_PATHS: "$(inherited)"
+        SWIFT_SWIFT3_OBJC_INFERENCE: Off
+        CURRENT_PROJECT_VERSION: 1
+    dependencies:
+      - carthage: SwiftyStoreKit
+      - carthage: Alamofire
+      - carthage: OpenSSL
