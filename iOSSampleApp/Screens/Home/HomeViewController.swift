@@ -1,6 +1,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    var presenter: HomeUIOutput!
 
     lazy var serverTitleLabel: UILabel = UI.label(title: "Server:")
     lazy var localTitleLabel: UILabel = UI.label(title: "Local:")
@@ -67,4 +68,8 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = .lightGray
         self.layout()
     }
+}
+
+extension HomeViewController: HomeUIInput {
+    
 }
