@@ -92,5 +92,8 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeUIInput {
-    
+    func display(viewModel: HomeViewModel) {
+        self.localLabel.text = viewModel.localStatus
+        self.serverLabel.text = viewModel.serverStatus
+    }
 }

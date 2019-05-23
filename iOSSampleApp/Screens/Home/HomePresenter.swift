@@ -10,15 +10,25 @@ import Foundation
 class HomePresenter {
     var interactor: HomeInteractorInput!
     weak var ui: HomeUIInput!
+    
+    var serverStatus: SubscriptionStatus?
+    var localStatus: SubscriptionStatus?
+    
+    private func updateUI() {
+        let viewModel = HomeViewModel(serverStatus: self.serverStatus, localStatus: self.localStatus)
+        ui.display(viewModel: viewModel)
+    }
 }
 
 extension HomePresenter: HomeInteractorOutput {
     func deliver(serverStatus: SubscriptionStatus) {
-        
+        self.serverStatus = serverStatus
+        self.updateUI()
     }
     
     func deliver(localStatus: SubscriptionStatus) {
-        
+        self.localStatus = localStatus
+        self.updateUI()
     }
 }
 

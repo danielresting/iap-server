@@ -7,7 +7,10 @@
 
 import Foundation
 
-protocol HomeUIInput: class {}
+protocol HomeUIInput: class {
+    func display(viewModel: HomeViewModel)
+}
+
 protocol HomeUIOutput: class {
     func didLoad()
     
