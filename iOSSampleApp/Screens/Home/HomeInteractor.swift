@@ -13,5 +13,15 @@ class HomeInteractor {
 }
 
 extension HomeInteractor: HomeInteractorInput {
+    func subscribe() {
+        
+    }
     
+    func fetchServerStatus() {
+        output?.deliver(serverStatus: .active)
+    }
+    
+    func fetchLocalStatus() {
+        
+    }
 }

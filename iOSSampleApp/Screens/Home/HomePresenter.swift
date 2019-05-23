@@ -13,11 +13,22 @@ class HomePresenter {
 }
 
 extension HomePresenter: HomeInteractorOutput {
+    func deliver(serverStatus: SubscriptionStatus) {
+        
+    }
     
+    func deliver(localStatus: SubscriptionStatus) {
+        
+    }
 }
 
 extension HomePresenter: HomeUIOutput {
     func didLoad() {
-        
+        interactor.fetchServerStatus()
+        interactor.fetchLocalStatus()
+    }
+    
+    func didTapSubscribe() {
+        interactor.subscribe()
     }
 }

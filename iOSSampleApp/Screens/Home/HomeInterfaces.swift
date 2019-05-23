@@ -12,5 +12,19 @@ protocol HomeUIOutput: class {
     func didLoad()
 }
 
-protocol HomeInteractorInput: class {}
-protocol HomeInteractorOutput: class {}
+protocol HomeInteractorInput: class {
+    func fetchServerStatus()
+    func fetchLocalStatus()
+    
+    func subscribe()
+}
+protocol HomeInteractorOutput: class {
+    func deliver(serverStatus: SubscriptionStatus)
+    func deliver(localStatus: SubscriptionStatus)
+}
+
+enum SubscriptionStatus {
+    case active
+    case inactive
+    case error(Error)
+}

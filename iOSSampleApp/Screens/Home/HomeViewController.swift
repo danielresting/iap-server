@@ -67,6 +67,8 @@ class HomeViewController: UIViewController {
         self.title = "Subscription Status"
         self.view.backgroundColor = .lightGray
         self.layout()
+        
+        self.presenter.didLoad()
     }
 }
 
